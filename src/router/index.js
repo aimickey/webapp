@@ -5,6 +5,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/login',
+      name: 'login',
+      meta: { title: 'ログイン', requiresAuth: false },
+      component: () => import('@/views/LoginView.vue'),
+    },
+    {
       path: '/',
       name: 'home',
       meta: { title: 'ダッシュボード', icon: 'dashboard' },
@@ -35,6 +41,23 @@ const router = createRouter({
       component: () => import('@/views/SettingsView.vue'),
     },
   ],
+})
+
+// Navigation guard: redirect to login if not authenticated
+router.beforeEach(async (to) => {
+  // Dynamically import to avoid Pinia initialization order issues
+  const { useAuthStore } = await import('@/stores/auth')
+  const authStore = useAuthStore()
+
+  // If going to a page that isn't login and user isn't authenticated, redirect to login
+  if (to.name !== 'login' && !authStore.isAuthenticated) {
+    return { name: 'login' }
+  }
+
+  // If going to login but already authenticated, redirect to home
+  if (to.name === 'login' && authStore.isAuthenticated) {
+    return { name: 'home' }
+  }
 })
 
 export default router

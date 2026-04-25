@@ -35,7 +35,7 @@
           <span class="material-icons-round">person</span>
         </div>
         <div class="user-info">
-          <span class="user-name">大島 太郎</span>
+          <span class="user-name">山田 太郎</span>
           <span class="user-role">管理者</span>
         </div>
         <button class="user-menu-btn" aria-label="ユーザーメニュー">

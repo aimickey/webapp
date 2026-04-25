@@ -32,7 +32,7 @@ const sections = [
     { label: 'サウンド', desc: '通知時のサウンド再生', type: 'toggle', value: true },
   ]},
   { title: 'アカウント', items: [
-    { label: '表示名', desc: 'プロフィールに表示される名前', type: 'text', value: '大島 太郎' },
+    { label: '表示名', desc: 'プロフィールに表示される名前', type: 'text', value: '山田 太郎' },
     { label: 'メールアドレス', desc: 'アカウントに紐づくメール', type: 'text', value: 'taro@example.com' },
   ]},
 ]
@@ -40,6 +40,7 @@ const sections = [
 
 <style scoped>
 .settings-view { display: flex; flex-direction: column; gap: var(--space-8); max-width: 800px; }
+.settings-sections { display: flex; flex-direction: column; gap: var(--space-6); }
 .page-title { font-size: var(--font-size-2xl); font-weight: 800; letter-spacing: -0.02em; }
 .page-desc { color: var(--color-text-secondary); margin-top: var(--space-2); }
 .settings-section { background: var(--color-bg-card); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: var(--space-6); animation: fadeInUp 0.5s ease-out both; }
@@ -49,7 +50,8 @@ const sections = [
 .setting-info { display: flex; flex-direction: column; gap: var(--space-1); }
 .setting-label { font-weight: 600; font-size: var(--font-size-sm); }
 .setting-desc { font-size: var(--font-size-xs); color: var(--color-text-muted); }
-.toggle { position: relative; width: 44px; height: 24px; cursor: pointer; }
+.setting-control { flex-shrink: 0; display: flex; align-items: center; }
+.toggle { position: relative; display: inline-block; width: 44px; min-width: 44px; height: 24px; cursor: pointer; flex-shrink: 0; }
 .toggle input { opacity: 0; width: 0; height: 0; }
 .toggle-slider { position: absolute; inset: 0; background: var(--color-surface-3); border-radius: var(--radius-full); transition: var(--transition-base); }
 .toggle-slider::before { content: ''; position: absolute; width: 18px; height: 18px; border-radius: 50%; background: white; top: 3px; left: 3px; transition: var(--transition-base); }
