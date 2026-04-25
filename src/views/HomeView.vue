@@ -1,12 +1,6 @@
 <template>
   <div class="home-view">
-    <section class="welcome-banner">
-      <div class="welcome-content">
-        <h1 class="welcome-title">おかえりなさい、<span class="gradient-text">山田</span>さん 👋</h1>
-        <p class="welcome-desc">本日のダッシュボード概要です。すべてのシステムは正常に稼働しています。</p>
-      </div>
-      <div class="welcome-deco"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
-    </section>
+
 
     <section class="stats-grid">
       <StatCard v-for="(s, i) in stats" :key="i" :icon="s.icon" :icon-bg="s.iconBg" :label="s.label" :value="s.value" :trend="s.trend" :trend-value="s.trendValue" class="stat-anim" :style="{ animationDelay: i * 0.1 + 's' }" />
